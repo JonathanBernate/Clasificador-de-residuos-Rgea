@@ -13,7 +13,7 @@
 		body {
 			/* min-height: 75rem; */
 			padding-top: 4.5rem;
-			background: #fff url("../static/imagenes/fondo.png") no-repeat center center / cover;
+			background:#6FCEBD;
 		}
 
 		.bd-placeholder-img {
@@ -35,42 +35,29 @@
 			color: #fff;
 		}
 
+		.logo{
+			padding-left: 10%;
+		}
 
-
-		/* @media (min-width: 768px) {
-				.bd-placeholder-img-lg {
-					font-size: 3.5rem;
-				}
-			} */
 	</style>
 </head>
 
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		<a class="navbar-brand" href="/index.html">Clasificador de residuos Rgea</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-			aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<!-- <div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-				</li>
-			</div> -->
 	</nav>
 
 	<div class="container">
 		<div class="row text-center">
 			<div class="col-12">
-				<button class="btn colorTomarFoto" id="tomar-camara" onclick="tomarFoto();">Tomar foto</button>
-				<button class="btn btn-primary" id="cambiar-camara" onclick="cambiarCamara();">Cambiar Cámara</button>
+				<button type="button" class="btn colorTomarFoto" id="tomar-camara" value="tomarFoto" onclick="tomarFoto();">Tomar foto</button>
+				<button type="button" class="btn btn-primary" id="cambiar-camara" onclick="cambiarCamara();">Cambiar Cámara</button>
 			</div>
 		</div>
 	</div>
 	<div class="row text-center">
-		<div class="col-4  text-center">
-			<img src="../static/imagenes/logo.png" height="300" width="300" alt="">
+		<div class="col-4  text-center logo">
+			<img src="../static/imagenes/logo.png" height="250" width="250" alt="">
 		</div>
 		<div class="col-4  mt-4 text-center" size="500">
 			<video id="video" playsinline autoplay style="width: 1px;"></video>
@@ -85,25 +72,28 @@
 
 
 
-	<main role="main" class="container mt-5">
+	<main role="main" class="container">
 		<div class="row">
 			<div class="col-12">
-				<div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">Loading Model</div>
+				<div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">Cargando modedelo
+				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 text-center">
-				<button id="predict-button" class="btn colorFoto">Confirmar</button>
+			<div class="col-12 text-center"><br>
+				<button type="button" id="predict-button" class="btn colorFoto" value="clasificar" onclick="clasificar()">Clasificar</button>
 			</div>
 		</div>
+		
 		<hr>
 		<div class="row">
 
-			<div class="col-6">
+			<div class="col-6" >
 				<h2 class="ml-3">Predictions</h2>
 				<ol id="prediction-list"></ol>
 			</div>
 		</div>
+	 
 	</main>
 
 	<script type="text/javascript">
@@ -115,6 +105,7 @@
 		var modelo = null;
 		var size = 400;
 		var camaras = [];
+		var predecirActivo= false;
 
 		var currentStream = null;
 		var facingMode = "user"; //Para que funcione con el celular (user/environment)
@@ -183,6 +174,8 @@
 			let imgURL = canvas.toDataURL();
 
 			$("#selected-image").attr("src", imgURL);
+
+			predecirActivo=true;
 
 			console.log(imgURL)
 
