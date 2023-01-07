@@ -25,6 +25,18 @@
 			user-select: none;
 		}
 
+		.colorTomarFoto {
+			background-color: red;
+			color: #fff;
+		}
+
+		.colorFoto {
+			background-color: green;
+			color: #fff;
+		}
+
+
+
 		/* @media (min-width: 768px) {
 				.bd-placeholder-img-lg {
 					font-size: 3.5rem;
@@ -51,19 +63,27 @@
 	<div class="container">
 		<div class="row text-center">
 			<div class="col-12">
-				<button class="btn btn-primary " id="tomar-camara" onclick="tomarFoto();">Tomar foto</button>
+				<button class="btn colorTomarFoto" id="tomar-camara" onclick="tomarFoto();">Tomar foto</button>
 				<button class="btn btn-primary" id="cambiar-camara" onclick="cambiarCamara();">Cambiar Cámara</button>
-			</div>
-
-			<div class="col-6  mt-4 text-center">
-				<video id="video" playsinline autoplay style="width: 1px;"></video>
-				<canvas id="canvas" width="220" height="220"></canvas>
-			</div>
-			<div class="col-6 text-center">
-				<img id="selected-image" class=" mt-4" width="220" height="220" alt="">
 			</div>
 		</div>
 	</div>
+	<div class="row text-center">
+		<div class="col-4  text-center">
+			<img src="../static/imagenes/logo.png" height="300" width="300" alt="">
+		</div>
+		<div class="col-4  mt-4 text-center" size="500">
+			<video id="video" playsinline autoplay style="width: 1px;"></video>
+			<canvas id="canvas" width="220" height="220"></canvas>
+		</div>
+		<div class="col-4 text-center">
+			<img id="selected-image" class=" mt-4" width="220" height="220" alt="">
+		</div>
+
+	</div>
+
+
+
 
 	<main role="main" class="container mt-5">
 		<div class="row">
@@ -73,7 +93,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 text-center">
-				<button id="predict-button" class="btn btn-primary ">Confirmar</button>
+				<button id="predict-button" class="btn colorFoto">Confirmar</button>
 			</div>
 		</div>
 		<hr>
