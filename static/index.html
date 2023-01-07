@@ -48,18 +48,18 @@
 
 	<div class="container text-center">
 		<div class="row text-center">
-			<div class="col-md-2 col-lg-3 col-sm-4 mt-4 text-center">
-				<img src="../static/imagenes/logo.png" height="180" width="180" alt="">
+			<div class="col-md-12 col-lg-3 col-sm-12 mt-4 text-center">
+				<img src="../static/imagenes/logo.png" height="180" width="180" alt=""><br>
 				<button type="button" class="btn colorTomarFoto" id="tomar-camara" value="tomarFoto"
 					onclick="tomarFoto();">Tomar foto</button>
 				<button type="button" class="btn btn-primary" id="cambiar-camara" onclick="cambiarCamara()">Cambiar
 					Cámara</button>
 			</div>
-			<div class="col-md-4 col-lg-4 col-sm-4 mt-4 text-center" size="500">
+			<div class="col-md-6 col-lg-4 col-sm-4 mt-4 text-center" size="500">
 				<video id="video" playsinline autoplay style="width: 1px;"></video>
 				<canvas id="canvas" width="280" height="280"></canvas>
 			</div>
-			<div class="col-md-4 col-lg-4 col-sm-4 mt-4text-center">
+			<div class="col-md-6 col-lg-4 col-sm-4 text-center">
 				<img id="selected-image" class=" mt-4" width="280" height="280" alt=""
 					src="../static/imagenes/FOTO.png">
 			</div>
@@ -88,8 +88,8 @@
 		<hr>
 		<div class="row">
 
-			<div class="col-6">
-				<h2 class="ml-3">Predictions</h2>
+			<div class="col-12">
+				<h2 class="ml-3">Predicción</h2>
 				<ol id="prediction-list"></ol>
 			</div>
 		</div>
